@@ -23,7 +23,7 @@ while true; do
             read -n 1 -s -r -p "Press any key to continue..."
             ;;
         2)
-            ping -c 5 127.0.0.1
+            ping -c 5 192.168.1.25
             read -n 1 -s -r -p "Press any key to continue..."
             ;;
         3)
