@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# Script: Ops 301 Class 05 Ops Challenge 
+# Author: Jordan Marshall
+# Date of latest revision: 17Mar23
+# Purpose: Clearing Logs
+
+
+# Main
+
+# Create a timestamp in the format YYYYMMDDHHMMSS
+timestamp=$(date "+%Y%m%d%H%M%S")
+
+# Specify the backup directory
+backup_dir="/var/log/backups"
+
+# Create the backup directory if it doesn't exist
+mkdir -p $backup_dir
+
+# Loop through the log files to be backed up
+for file in /var/log/syslog /var/log/wtmp; do
+
+  # Get the original size of the file
+  orig_size=$(du -h $file | awk '{print $1}')
+
+  # Create a filename for the compressed backup file
+  zip_file="$backup_dir/$(basename $file)-$timestamp.zip"
+
+  # Compress the file and save it to the backup directory with the specified filename
+  zip -q $zip_file $file
+
+  # Clear the contents of the log file
+  > $file
+
+  # Get the size of the compressed backup file
+  zip_size=$(du -h $zip_file | awk '{print $1}')
+
+  # Print the file size and compressed file size to the screen
+  echo "Original file size of $file: $orig_size"
+  echo "Compressed file size of $zip_file: $zip_size"
+
+  # Compare the original and compressed file sizes and print a message indicating which one is larger or smaller
+  if [[ $orig_size < $zip_size ]]; then
+    echo "The compressed file is larger than the original file."
+  elif [[ $orig_size > $zip_size ]]; then
+    echo "The compressed file is smaller than the original file."
+  else
+    echo "The compressed file is the same size as the original file."
+  fi
+# assisted by ChatGPT
+# End
