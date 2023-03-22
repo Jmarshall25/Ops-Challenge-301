@@ -9,4 +9,4 @@ print(my_name)
 Address = os.system("ip a")
 print(Address)
 extract = os.system(lshw -short)
-print(extract
+print(extract)
