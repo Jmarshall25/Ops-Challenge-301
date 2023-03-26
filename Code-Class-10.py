@@ -1,19 +1,18 @@
 #!/usr/bin/env python3
 
-# Create a new file if it does not exist
-f = open("demofile.txt", "w")
+# Script: Ops 301 Class 08 Solution
+# Author: Jordan Marshall
+# Date of latest revision: 24Mar23
+# Purpose: Python File Handling 
 
-# How to open a file
-f = open("demofile.txt")
+# Main
 
-# How to open a file and read it
-f = open("demofile.txt", "r")
-print(f.read())
+# Create file
 
-# How to return the five first characters of a file
-f = open("demofile.txt", "r")
-print(f.read(5))
+# Opens file
 
-# Close a file when you're finished
-f = open("demofile.txt", "r")
-print(f.readline())
+# Appends and prints 3rd line
+
+# Delete file 
+
+# End 
