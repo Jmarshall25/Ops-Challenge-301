@@ -11,14 +11,13 @@
 
 file = open("python_file.txt", "a")
 file.write("hello\nworld\ngoodbye")
-open("python_file.txt, "r")
      
 # Read third line 
-     
+
+open("python_file.txt, "r")
 contents = file.readlines()
 print(contents[2])
 
-     
 # Delete file
      
 import os
