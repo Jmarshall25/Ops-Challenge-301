@@ -7,12 +7,22 @@
 
 # Main
 
-# Create file
+# Create file and write three lines
 
-# Opens file
+file = open("python_file.txt", "a")
+file.write("hello\nworld\ngoodbye")
+open("python_file.txt, "r")
+     
+# Read third line 
+     
+contents = file.readlines()
+print(contents[2])
 
-# Appends and prints 3rd line
+     
+# Delete file
+     
+import os
+os.remove("python_file.txt")
 
-# Delete file 
 
 # End 
